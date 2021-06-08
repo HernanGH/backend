@@ -1,0 +1,99 @@
+swagger: "2.0"
+info:
+  description: "API para gestion de venta de vehiculos"
+  version: "1.0.0"
+  title: "Venta de vehiculos"
+host: "carstore.swagger.io"
+basePath: "/v1"
+tags:
+- name: "vehiculo"
+  description: "Endpoints relacionados a vehiculos"
+schemes:
+- "http"
+paths:
+ /vehiculo:
+  get:
+    tags:
+     - "vehiculo"
+    summary: "informacion del vehiculo"
+    consumes:
+      - "application/json"
+    produces:
+      - "application/json"
+    responses:
+      "200":
+        description: "operacion exitosa"
+        schema:
+          type: "array"
+          items:
+            $ref: "#/definitions/Vehiculo"
+  post:
+   tags:
+     - "vehiculo"
+   summary: "creacion del vehiculo"
+   parameters:
+    - in: "body"
+      name: "body"
+      description: "Objecto JSON con los datos del vehiculo"
+      required: true
+      schema:
+       $ref: "#/definitions/Vehiculo"
+   responses:
+      "200":
+        description: "operacion exitosa"
+        schema:
+         $ref: "#/definitions/Vehiculo"
+  put:
+   tags:
+     - "vehiculo"
+   summary: "actualizacion del vehiculo"
+   parameters:
+    - in: "body"
+      name: "body"
+      description: "Objecto JSON con los datos del vehiculo"
+      required: true
+      schema:
+       $ref: "#/definitions/Vehiculo"
+   responses:
+      "200":
+        description: "operacion exitosa"
+        schema:
+         $ref: "#/definitions/Vehiculo"
+ /vehiculo/{vehiculoId}:
+  delete:
+   tags:
+    - "vehiculo"
+   summary: "Eliminacion de vehiculo"
+   produces:
+     - "application/json"
+   parameters:
+    - name: "vehiculoId"
+      in: "path"
+      description: "Vehiculo id a eliminar"
+      required: true
+      type: "integer"
+      format: "int64"
+   responses:
+     "200":
+        description: "operacion exitosa"
+     "400":
+        description: "ID Invalido suministrado"
+     "404":
+        description: "Vehiculo no encontrado"
+     
+definitions:
+ Vehiculo:
+  type: "object"
+  properties:
+   id:
+    type: "number"
+   marca: 
+    type: "string"
+   modelo: 
+    type: "string"
+   fechaDeFabricación:
+    type: "string"
+   cantidadDePuertas:
+    type: "integer"
+   disponibleParaVenta:
+    type: "boolean"
