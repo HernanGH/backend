@@ -1,0 +1,253 @@
+swagger: "2.0"
+info:
+  description: "API para gestion del foro"
+  version: "1.0.0"
+  title: "Foro"
+host: "carstore.swagger.io"
+basePath: "/v1"
+tags:
+ - name: "usuarios"
+   description: "Endpoints relacionados a usuarios"
+ - name: "comentarios"
+   description: "Endpoints relacionados a comentarios"
+ - name: "topicos"
+   description: "Endpoints relacionados a topicos"
+schemes:
+- "http"
+paths:
+ /usuarios:
+  get:
+    tags:
+     - "usuarios"
+    summary: "informacion de los usuarios"
+    consumes:
+      - "application/json"
+    produces:
+      - "application/json"
+    responses:
+      "200":
+        description: "operacion exitosa"
+        schema:
+          type: "array"
+          items:
+            $ref: "#/definitions/Usuario"
+  post:
+    tags:
+     - "usuarios"
+    summary: "creacion del usuario"
+    parameters:
+     - in: "body"
+       name: "body"
+       description: "Objecto JSON con los datos del usuario"
+       required: true
+       schema:
+        $ref: "#/definitions/Usuario"
+    responses:
+      "200":
+        description: "operacion exitosa"
+        schema:
+         $ref: "#/definitions/Usuario"
+  put:
+   tags:
+     - "usuarios"
+   summary: "actualizacion del usuario"
+   parameters:
+    - in: "body"
+      name: "body"
+      description: "Objecto JSON con los datos del usuario"
+      required: true
+      schema:
+       $ref: "#/definitions/Usuario"
+   responses:
+      "200":
+        description: "operacion exitosa"
+        schema:
+         $ref: "#/definitions/Usuario"
+  delete:
+   tags:
+    - "usuarios"
+   summary: "Eliminacion de usuario"
+   produces:
+     - "application/json"
+   parameters:
+    - in: "body"
+      name: "body"
+      description: "usuario a eliminar"
+      required: true
+      schema:
+       $ref: "#/definitions/Usuario"
+   responses:
+     "200":
+        description: "operacion exitosa"
+     "400":
+        description: "ID Invalido suministrado"
+     "404":
+        description: "Usuario no encontrado"
+ /comentarios:
+  get:
+    tags:
+     - "comentarios"
+    summary: "informacion de los comentarios"
+    consumes:
+      - "application/json"
+    produces:
+      - "application/json"
+    responses:
+      "200":
+        description: "operacion exitosa"
+        schema:
+          type: "array"
+          items:
+            $ref: "#/definitions/Comentario"
+  post:
+    tags:
+     - "comentarios"
+    summary: "creacion del comentario"
+    parameters:
+     - in: "body"
+       name: "body"
+       description: "Objecto JSON con los datos del comentario"
+       required: true
+       schema:
+        $ref: "#/definitions/Comentario"
+    responses:
+      "200":
+        description: "operacion exitosa"
+        schema:
+         $ref: "#/definitions/Comentario"
+  put:
+   tags:
+     - "comentarios"
+   summary: "actualizacion del comentario"
+   parameters:
+    - in: "body"
+      name: "body"
+      description: "Objecto JSON con los datos del comentario"
+      required: true
+      schema:
+       $ref: "#/definitions/Comentario"
+   responses:
+      "200":
+        description: "operacion exitosa"
+        schema:
+         $ref: "#/definitions/Comentario"
+  delete:
+   tags:
+    - "comentarios"
+   summary: "Eliminacion de comentario"
+   produces:
+     - "application/json"
+   parameters:
+    - in: "body"
+      name: "body"
+      description: "comentario a eliminar"
+      required: true
+      schema:
+       $ref: "#/definitions/Comentario"
+   responses:
+     "200":
+        description: "operacion exitosa"
+     "400":
+        description: "ID Invalido suministrado"
+     "404":
+        description: "comentario no encontrado"
+ /topicos:
+  get:
+    tags:
+     - "topicos"
+    summary: "informacion de los topicos"
+    consumes:
+      - "application/json"
+    produces:
+      - "application/json"
+    responses:
+      "200":
+        description: "operacion exitosa"
+        schema:
+          type: "array"
+          items:
+            $ref: "#/definitions/Topico"
+  post:
+    tags:
+     - "topicos"
+    summary: "creacion del topico"
+    parameters:
+     - in: "body"
+       name: "body"
+       description: "Objecto JSON con los datos del topico"
+       required: true
+       schema:
+        $ref: "#/definitions/Topico"
+    responses:
+      "200":
+        description: "operacion exitosa"
+        schema:
+         $ref: "#/definitions/Topico"
+  put:
+   tags:
+     - "topicos"
+   summary: "actualizacion del topico"
+   parameters:
+    - in: "body"
+      name: "body"
+      description: "Objecto JSON con los datos del topico"
+      required: true
+      schema:
+       $ref: "#/definitions/Topico"
+   responses:
+      "200":
+        description: "operacion exitosa"
+        schema:
+         $ref: "#/definitions/Topico"
+  delete:
+   tags:
+    - "topicos"
+   summary: "Eliminacion de topico"
+   produces:
+     - "application/json"
+   parameters:
+    - in: "body"
+      name: "body"
+      description: "topico a eliminar"
+      required: true
+      schema:
+       $ref: "#/definitions/Topico"
+   responses:
+     "200":
+        description: "operacion exitosa"
+     "400":
+        description: "ID Invalido suministrado"
+     "404":
+        description: "topico no encontrado"
+definitions:
+ Usuario:
+  type: "object"
+  properties:
+   id:
+    type: "number"
+   nombre: 
+    type: "string"
+   apellido: 
+    type: "string"
+   email:
+    type: "string"
+ Comentario:
+  type: "object"
+  properties:
+   id:
+    type: "number"
+   topicoId: 
+    type: "number"
+   usuarioId: 
+    type: "number"
+   comentario:
+    type: "string"
+ Topico:
+  type: "object"
+  properties:
+   id:
+    type: "number"
+   titulo: 
+    type: "string"
+   descripcion: 
+    type: "string"
