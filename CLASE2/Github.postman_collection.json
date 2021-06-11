@@ -1,0 +1,59 @@
+{
+	"info": {
+		"_postman_id": "ee0c3b22-06de-4796-afa4-d5722fc82581",
+		"name": "Github",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Listado de usuarios  ",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.github.com/search/users?q=dsegovia\n",
+					"protocol": "https",
+					"host": [
+						"api",
+						"github",
+						"com"
+					],
+					"path": [
+						"search",
+						"users"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "dsegovia\n"
+						}
+					]
+				},
+				"description": "hago una busqueda de usuarios por nombre para concer sus datos "
+			},
+			"response": []
+		},
+		{
+			"name": "Listado de repositorios de un usuario",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.github.com/users/HernanGH/repos",
+					"protocol": "https",
+					"host": [
+						"api",
+						"github",
+						"com"
+					],
+					"path": [
+						"users",
+						"HernanGH",
+						"repos"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
