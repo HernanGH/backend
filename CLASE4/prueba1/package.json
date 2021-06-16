@@ -1,0 +1,17 @@
+{
+  "name": "prueba-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cool-images": "^1.0.3",
+    "dotenv": "^10.0.0",
+    "moment": "^2.29.1"
+  }
+}
