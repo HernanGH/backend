@@ -10,6 +10,7 @@ router.get('/', async (req, res, next) => {
 
 /* POST jugadores listing. */
 router.post('/', async (req, res, next) => {
+  console.log(req.body);
   const nuevoJugador = req.body;
   console.log(nuevoJugador);
   const jugadorGuardado = await crearJugador(nuevoJugador);

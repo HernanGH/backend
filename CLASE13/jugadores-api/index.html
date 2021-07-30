@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CORS TEST</title>
+</head>
+<body>
+  <button id="mostrar">mostrar</button>
+</body>
+<script>
+  // fetch('http://localhost:3000/jugadores')
+  //   .then((data) => console.log(data));
+
+  const usuario1 = {
+    name: 'santi',
+    lastname: 'martinez',
+    imagen: 'https://resizer.glanacion.com/resizer/65AQfCkKti9NKWx88cayDD6QhvU=/879x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/PCMMVYM4ERDVXL3BUWQBATKJ3A.jpg'
+  };
+
+  const usuario2 = {
+    name: 'santi2',
+    lastname: 'martinez2',
+    imagen: 'https://resizer.glanacion.com/resizer/65AQfCkKti9NKWx88cayDD6QhvU=/879x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/PCMMVYM4ERDVXL3BUWQBATKJ3A.jpg'
+  };
+
+  const existe = localStorage.getItem('testttt');
+  console.log(existe);
+
+  localStorage.setItem('usuario1', JSON.stringify(usuario1));
+  localStorage.setItem('usuario2', JSON.stringify(usuario2));
+
+  document.querySelector('#mostrar').addEventListener('click', ()=> {
+    const dataGuardada = localStorage.getItem('usuario1');
+    console.log(dataGuardada);
+
+    const objeto = JSON.parse(dataGuardada);
+    console.log(objeto);
+  });
+</script>
+</html>
